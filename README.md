@@ -1,4 +1,4 @@
-# SpinPod
+# MangoOS
 A classic iPodOS like operating system. I want to build my own classic iPod, using the shell of either a 3rd gen classic or 5th gen classic ipod with completely new internals.
 
 The basic outline of this project:
@@ -6,8 +6,7 @@ The basic outline of this project:
 - A destam js web frontend built with vite
 - Embedded display using Servo/Servo (rust, runs on 32bit architecture that the pi uses)
 - Rust backend to handle i/o, file management, music playing, bluetooth, battery management, etc
-- A build script that can entirely setup the picore operating system fully functional, SpinPod backend/frontend servo, and whatever is needed to boot and display it at runtime so that it acts like a dedicated device. All this from a pc/laptop get's flashed onto the sd card, so that when the device powers on everything is setup and it just works.
-
+- A build script that can entirely setup the picore operating system fully functional, MangoOS backend/frontend servo, and whatever is needed to boot and display it at runtime so that it acts like a dedicated device. All this from a pc/laptop get's flashed onto the sd card, so that when the device powers on everything is setup and it just works.
 
 iPod 5th gen classic mods list:
 - New shiny back plate original silver

@@ -76,3 +76,7 @@ I want to lay down some rules to make this projects scope understood:
 
 # future plans:
 offline scrobble? potentially some kind of scrobble system, when you plug in, your scrobble data get's loaded onto your desktop, then it can somehow suggest new music to you based on that scrobble, you get to load your "New music playlist" generated, somehow automatically download it from deezer or something and load it onto the device, would require a desktop companion client. Maybe the client could be used to flash the os and build onto a pre-built device or something. idk.
+
+
+
+instead of using websockets to communicate button and scroll wheel inputs in servo/rust, does servo instead just provide on key down events that we could trigger in rust directly when we detect the signals from the buttons/scroll wheel? Just have those trigger keyboard buttons on the device then have that traditional signal get picked up by Servo if Servo supports on key down events? Would that be faster than websockets? It wouldn't require a network connection between the front and backend server?

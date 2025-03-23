@@ -23,13 +23,19 @@ iPod 5th gen classic mods list:
 
 Video links:
 [ Why Are People Buying iPods Again? ](https://www.youtube.com/watch?v=00lLrwHQPns)
+
 [ Perfect iPod bluetooth + taptic + magsafe ](https://www.youtube.com/watch?v=FEPREoY_Gmk)
+
 [ Spotify Streaming on a modded 17-year-old iPod Classic (via Raspberry Pi 0w) ](https://www.youtube.com/watch?v=ZxdhG1OhVng)
+
 [ Spotify iPod pt. 2: FAQ's and Upgrades! ](https://www.youtube.com/watch?v=q0pUPab7Rms)
+
 [ Bluetooth and USB C kit for iPod classic (Classic Connect by Moonlit Market review) ](https://www.youtube.com/watch?v=Y0YXLERInw8) <<---- This kit looks really good, bluetooth small, usbc small. kit is for 6th gen though not 5 or 5.5.
+
 [ Bluetooth Upgrade Kit for the Apple iPod classic 5th gen ](https://www.youtube.com/watch?v=GJmMuAekcwE)
 
 [ sPot: Spotify in a 4th-gen iPod (2004) ](https://hackaday.io/project/177034-spot-spotify-in-a-4th-gen-ipod-2004)
+
 [retro-ipod-spotify-client github](https://github.com/dupontgu/retro-ipod-spotify-client)
 
 youtube history: https://www.youtube.com/feed/history?query=ipod

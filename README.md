@@ -86,3 +86,18 @@ offline scrobble? potentially some kind of scrobble system, when you plug in, yo
 
 
 instead of using websockets to communicate button and scroll wheel inputs in servo/rust, does servo instead just provide on key down events that we could trigger in rust directly when we detect the signals from the buttons/scroll wheel? Just have those trigger keyboard buttons on the device then have that traditional signal get picked up by Servo if Servo supports on key down events? Would that be faster than websockets? It wouldn't require a network connection between the front and backend server?
+
+potential fonts: https://designwithshay.com/free-retro-google-fonts-for-your-next-design-project/
+
+
+with a custom resin 3d printed back panel, we can get a nice seal between usbc ports, aux, hold/power button, etc, maybe even a volume rocker.
+
+we can chrome plate polished smooth resin prints:
+https://www.youtube.com/watch?v=ifboockPrFY
+
+electroplating, more complicated but a finer mirror finish, maybe we do this and coat it in some car gloss paint to protect it form scratches?
+
+https://www.youtube.com/watch?v=7PFHT02n5V8
+
+
+crazy ionized plating: https://www.youtube.com/shorts/zNw-4uLwiNM

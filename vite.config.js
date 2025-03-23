@@ -38,8 +38,11 @@ if (process.env.ENV === 'production') {
 }
 
 export default ({ mode }) => {
-    process.env = {...process.env, ...loadEnv(mode, process.cwd())};
+	process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 	return defineConfig({
+		server: {
+			port: process.env.PORT ? process.env.PORT : 3000,
+		},
 		root: './frontend',
 		plugins,
 		esbuild: {

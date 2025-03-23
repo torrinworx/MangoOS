@@ -2,25 +2,35 @@
   "name": "mongoos",
   "version": "1.0.0",
   "description": " A classic iPod OS like operating system built with Servo and Rust. ",
-  "main": "vite.config.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "dev": "vite",
+    "test": "vitest --silent=false"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/torrinworx/MangoOS.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Torrin Z. Leonard <torrin@worx4you.com> (https://torrinleonard.com/)",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/torrinworx/MangoOS/issues"
   },
   "homepage": "https://github.com/torrinworx/MangoOS#readme",
   "devDependencies": {
-    "vite": "^6.2.2"
+    "@babel/core": "^7.26.10",
+    "@babel/generator": "^7.26.10",
+    "@babel/parser": "^7.26.10",
+    "@babel/register": "^7.25.9",
+    "@babel/traverse": "^7.26.10",
+    "@babel/types": "^7.26.10",
+    "vite": "^6.2.2",
+    "vitest": "^3.0.9"
   },
   "dependencies": {
     "destam": "^0.5.2",
-    "destam-dom": "^0.11.0"
+    "destam-dom": "^0.11.0",
+    "destamatic-ui": "file:destamatic-ui"
   }
 }

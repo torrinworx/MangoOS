@@ -4,28 +4,26 @@ import { atomic } from "destam/Network";
 import FeatherIcons from "destamatic-ui/components/icons/FeatherIcons";
 
 const mainColors = {
-    $color_purple: '#500089',
-    $color_aqua: '#00FFFF',
-    $color_pink: '#FF00FF',
+    $color_selective_yellow: '#FFB703',
     $color_white: '#FFFFFF',
     $color_black: '#1A1035',
-    $color_slate: '#7F6BFE'
+    $color_ut_orange: '#FB8500'
 };
 
 const themeModes = {
     light: {
         $color_main: mainColors.$color_white,
-        $color_text: mainColors.$color_purple,
-        $color_top: mainColors.$color_purple,
-        $color_hover: mainColors.$color_slate,
+        $color_text: mainColors.$color_selective_yellow,
+        $color_top: mainColors.$color_selective_yellow,
+        $color_hover: mainColors.$color_selective_yellow,
         $color_hover_top: mainColors.$color_white,
     },
 
     dark: {
-        $color_main: mainColors.$color_purple,
+        $color_main: mainColors.$color_selective_yellow,
         $color_text: mainColors.$color_white,
         $color_top: mainColors.$color_white,
-        $color_hover: mainColors.$color_slate,
+        $color_hover: mainColors.$color_ut_orange,
         $color_hover_top: mainColors.$color_white,
     }
 };

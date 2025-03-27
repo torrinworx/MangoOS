@@ -101,3 +101,5 @@ https://www.youtube.com/watch?v=7PFHT02n5V8
 
 
 crazy ionized plating: https://www.youtube.com/shorts/zNw-4uLwiNM
+
+New plan: No node, no nvm, just rust on the device. picore, rust, servo, and the client build. Node stays as a developer tool for performance.

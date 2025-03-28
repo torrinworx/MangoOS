@@ -27,28 +27,29 @@ const Header = ({ state }) => {
 };
 
 const Fallback = ({ state }, cleanup) => {
-	const handleKeyDown = (event) => {
-		if (event.key === 'Escape') {
-			state.history.pop();
-		};
-	}
-	window.addEventListener('keydown', handleKeyDown);
-
-	cleanup(() => {
-		window.removeEventListener('keydown', handleKeyDown);
-	})
 	return <Typography type='h4' label='Page not found.' />;
 };
 
-const Router = ({ state }) => state.observer.path('history').map(p => {
-	const pageCmp = pages[p[p.length - 1].name];
-	if (!pageCmp) return <Fallback state={state} />;
-	const page = pageCmp.default;
-	const Page = page.page;
+const Router = ({ state }, cleanup) => {
+	const handleKeyDown = (event) => {
+		if (event.key === 'Escape' && state.history.length > 1) {
+			state.history.pop();
+		}
+	}
+	window.addEventListener('keydown', handleKeyDown);
+	cleanup(() => {
+		window.removeEventListener('keydown', handleKeyDown);
+	});
 
-	if (Page) return <Page state={state} />
-	else return <Fallback state={state} />;
-}).unwrap();
+	return state.observer.path('history').map(p => {
+		const pageCmp = p.length > 0 ? pages[p[p.length - 1].name] : pages['Home'];
+		if (!pageCmp) return <Fallback state={state} />;
+		const page = pageCmp.default;
+		const Page = page.page;
+		if (Page) return <Page state={state} />
+		else return <Fallback state={state} />;
+	}).unwrap();
+};
 
 const App = () => {
 	const state = OObject({

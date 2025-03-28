@@ -6,7 +6,7 @@ const Settings = ({ state }) => {
     const buttons = [
         {
             name: 'Bluetooth',
-            page: ''
+            page: 'Bluetooth'
         },
     ];
     return <Enter state={state} buttons={buttons} />

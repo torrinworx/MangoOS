@@ -32,10 +32,6 @@ const Enter = ({ state, buttons }, cleanup) => {
             focused.set(focused.get() + 1);
         }
 
-        if (event.key === 'Escape') {
-            state.history.pop();
-        }
-
         if (event.key === 'Enter') {
             state.history.push(buttons[focused.get()]);
         }

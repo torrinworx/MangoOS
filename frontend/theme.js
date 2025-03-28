@@ -289,8 +289,6 @@ window.themeMode = Observer.mutable('dark');
 window.theme = theme;
 
 window.themeMode.effect(mode => atomic(() => {
-    console.log(mode);
-
     for (const [key, val] of Object.entries(themeModes[mode])) {
         theme['*'][key] = val;
     }

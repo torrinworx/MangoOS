@@ -14,7 +14,7 @@ const Home = ({ state }) => {
         },
         {
             name: 'Settings',
-            page: ''
+            page: 'Settings'
         },
         {
             name: 'Shuffle Songs',

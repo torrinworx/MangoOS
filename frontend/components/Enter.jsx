@@ -20,7 +20,7 @@ const Row = ({ each, buttons, focused }) => {
     </div>;
 };
 
-const Enter = ({ state, buttons, prev = null }, cleanup) => {
+const Enter = ({ state, buttons }, cleanup) => {
     const focused = Observer.mutable(0)
 
     const handleKeyDown = (event) => {
@@ -32,14 +32,14 @@ const Enter = ({ state, buttons, prev = null }, cleanup) => {
             focused.set(focused.get() + 1);
         }
 
-        if (event.key === 'Escape' && prev) {
-            state.openPage = prev;
+        if (event.key === 'Escape') {
+            state.history.pop();
         }
 
         if (event.key === 'Enter') {
-            state.openPage = buttons[focused.get()];
+            state.history.push(buttons[focused.get()]);
         }
-    }
+    };
 
     window.addEventListener('keydown', handleKeyDown);
 

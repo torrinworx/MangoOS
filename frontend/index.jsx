@@ -1,4 +1,4 @@
-import { mount, Observer, OObject } from 'destam-dom';
+import { mount, Observer, OObject, OArray } from 'destam-dom';
 import { Theme, Icons, Typography, Icon, Scroll } from 'destamatic-ui';
 
 import theme from './theme';
@@ -28,7 +28,9 @@ const Header = ({ state }) => {
 
 const Fallback = ({ state }, cleanup) => {
 	const handleKeyDown = (event) => {
-		if (event.key === 'Escape') state.openPage = { name: 'Home' };
+		if (event.key === 'Escape') {
+			state.history.pop();
+		};
 	}
 	window.addEventListener('keydown', handleKeyDown);
 
@@ -36,10 +38,10 @@ const Fallback = ({ state }, cleanup) => {
 		window.removeEventListener('keydown', handleKeyDown);
 	})
 	return <Typography type='h4' label='Page not found.' />;
-}
+};
 
-const Router = ({ state }) => state.observer.path('openPage').map(p => {
-	const pageCmp = pages[p.name];
+const Router = ({ state }) => state.observer.path('history').map(p => {
+	const pageCmp = pages[p[p.length - 1].name];
 	if (!pageCmp) return <Fallback state={state} />;
 	const page = pageCmp.default;
 	const Page = page.page;
@@ -50,8 +52,8 @@ const Router = ({ state }) => state.observer.path('openPage').map(p => {
 
 const App = () => {
 	const state = OObject({
-		openPage: { name: 'Home' },
-		playerStatus: false
+		playerStatus: false,
+		history: OArray([{ name: 'Home' }]),
 	});
 
 	/* Something like this from MangoSync:

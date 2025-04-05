@@ -14,7 +14,7 @@ const Row = ({ each, buttons, focused }) => {
         <Typography type="h4" label={each.name} style={{
             color: focused.map(f => f === index ? '$color_main' : '$color_top')
         }} />
-        <Icon size={40} name="chevron-right" style={{
+        <Icon size={50} name="chevron-right" style={{
             color: focused.map(f => f === index ? '$color_main' : '$color_top')
         }} />
     </div>;

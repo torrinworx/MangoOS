@@ -2,6 +2,7 @@ import { mount, Observer, OObject, OArray } from 'destam-dom';
 import { Theme, Icons, Typography, Icon, Scroll } from 'destamatic-ui';
 
 import theme from './theme';
+import icons from './icons';
 
 let pages = import.meta.glob('./pages/*.jsx', { eager: true });
 pages = Object.fromEntries(
@@ -20,13 +21,13 @@ const Header = ({ state }) => {
 		<Icon size={40} name={state.observer.path('playerStatus').map(s => s ? 'play' : 'pause')} />
 		<Typography type='h4' label={clock} />
 		<div theme='center'>
-			<Icon size={50} name='battery' />
+			<Icon size={50} name='battery-full' />
 			<Icon size={40} name='bluetooth' />
 		</div>
 	</div>;
 };
 
-const Fallback = ({ state }, cleanup) => {
+const Fallback = () => {
 	return <Typography type='h4' label='Page not found.' />;
 };
 
@@ -54,7 +55,7 @@ const Router = ({ state }, cleanup) => {
 const App = () => {
 	const state = OObject({
 		playerStatus: false,
-		history: OArray([{ name: 'Home' }]),
+		history: OArray([{ name: 'Home' }]), // store index of focused her in history so that enter goes to this first
 	});
 
 	/* Something like this from MangoSync:
@@ -101,7 +102,7 @@ const App = () => {
 };
 
 mount(document.body, <Theme value={theme.theme}>
-	<Icons value={theme.icons}>
+	<Icons value={icons}>
 		<App />
 	</Icons>
 </Theme>);

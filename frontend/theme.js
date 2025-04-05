@@ -1,7 +1,6 @@
 import { OObject } from "destam-dom";
 import { Observer } from "destam-dom";
 import { atomic } from "destam/Network";
-import FeatherIcons from "destamatic-ui/components/icons/FeatherIcons";
 
 const mainColors = {
     $color_selective_yellow: '#FFB703',
@@ -296,7 +295,6 @@ window.themeMode.effect(mode => atomic(() => {
 
 export default {
     theme,
-    icons: [FeatherIcons],
     define: (...args) => atomic(() => {
         let prefix = '';
         let i = 0;

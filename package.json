@@ -31,6 +31,7 @@
   "dependencies": {
     "destam": "^0.5.2",
     "destam-dom": "^0.11.0",
-    "destamatic-ui": "file:destamatic-ui"
+    "destamatic-ui": "file:destamatic-ui",
+    "pixelarticons": "^1.8.1"
   }
 }

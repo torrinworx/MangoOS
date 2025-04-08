@@ -1,11 +1,11 @@
 {
-  "name": "mongoos",
+  "name": "mangoos",
   "version": "1.0.0",
   "description": " A classic iPod OS like operating system built with Servo and Rust. ",
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite",
+    "dev": "concurrently --kill-others \"vite\" \"go run ./backend/main.go\"",
     "test": "vitest --silent=false"
   },
   "repository": {
@@ -25,6 +25,7 @@
     "@babel/register": "^7.25.9",
     "@babel/traverse": "^7.26.10",
     "@babel/types": "^7.26.10",
+    "concurrently": "^9.1.2",
     "vite": "^6.2.2",
     "vitest": "^3.0.9"
   },
@@ -32,6 +33,7 @@
     "destam": "^0.5.2",
     "destam-dom": "^0.11.0",
     "destamatic-ui": "file:destamatic-ui",
-    "pixelarticons": "^1.8.1"
+    "pixelarticons": "^1.8.1",
+    "uuid": "^11.1.0"
   }
 }

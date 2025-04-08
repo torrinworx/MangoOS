@@ -1,8 +1,60 @@
+import { v4 as uuidv4 } from 'uuid';
 import { mount, Observer, OObject, OArray } from 'destam-dom';
 import { Theme, Icons, Typography, Icon, Scroll } from 'destamatic-ui';
 
 import theme from './theme';
 import icons from './icons';
+
+let ws;
+export const initWS = () => {
+	const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+	const wsPort = '3001';
+	const wsURL = `${protocol}${window.location.hostname}:${wsPort}/ws`;
+	const ws = new WebSocket(wsURL);
+
+	console.log("THIS IS INTERNAL WS: ", ws)
+
+	return new Promise((resolve, reject) => {
+		ws.addEventListener('open', () => resolve(ws));
+		ws.addEventListener('error', (err) => reject(err));
+		ws.addEventListener('close', () => { });
+	});
+};
+
+export const jobRequest = ({ name, props }) => {
+	return new Promise(async (resolve, reject) => {
+		const msgID = uuidv4();
+
+		const handleMessage = (event) => {
+			const response = JSON.parse(event.data);
+			if (response.id === msgID) {
+				ws.removeEventListener('message', handleMessage);
+
+				if (response.error) {
+					console.error(response.error);
+				} else {
+					resolve(response.result);
+				}
+			}
+		};
+
+		const sendMessage = () => {
+			try {
+				ws.send(JSON.stringify({
+					name: name,
+					id: msgID,
+					props
+				}));
+			} catch (error) {
+				reject(new Error('Issue with server module request: ', error));
+			}
+
+		};
+
+		ws.addEventListener('message', handleMessage);
+		sendMessage();
+	});
+};
 
 let pages = import.meta.glob('./pages/*.jsx', { eager: true });
 pages = Object.fromEntries(
@@ -58,6 +110,16 @@ const App = () => {
 		history: OArray([{ name: 'Home' }]), // store index of focused her in history so that enter goes to this first
 	});
 
+	const something = async () => {
+		console.log('wtf is happening')
+		ws = await initWS();
+		console.log('this is ws: ', ws);
+		const result = jobRequest("test", { test: 'test' });
+		console.log("THIS IS RESULT: ", result);
+	};
+
+	something();
+
 	/* Something like this from MangoSync:
 	if ('mediaSession' in navigator) {
 		navigator.mediaSession.setActionHandler('play', () => {
@@ -100,6 +162,7 @@ const App = () => {
 		</Scroll>
 	</div>;
 };
+
 
 mount(document.body, <Theme value={theme.theme}>
 	<Icons value={icons}>

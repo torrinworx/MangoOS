@@ -21,7 +21,7 @@ export const initWS = () => {
 	});
 };
 
-export const jobRequest = ({ name, props }) => {
+export const modReq = ({ name, props }) => {
 	return new Promise(async (resolve, reject) => {
 		const msgID = uuidv4();
 
@@ -114,7 +114,7 @@ const App = () => {
 		console.log('wtf is happening')
 		ws = await initWS();
 		console.log('this is ws: ', ws);
-		const result = jobRequest("test", { test: 'test' });
+		const result = await modReq({ name: "test", props: { test: 'test' } });
 		console.log("THIS IS RESULT: ", result);
 	};
 
